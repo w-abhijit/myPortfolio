@@ -1,0 +1,178 @@
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+ 
+/* Global */
+html {
+      min-height: 100%;
+      overflow: hidden;
+}
+ 
+body {
+      height: calc(100vh - 8em);
+      padding: 4em;
+      font-family: 'Anonymous Pro', monospace;
+      background-color: rgb(20, 20, 20);
+	  cursor: none;
+}
+ 
+.line1 {
+      position: relative;
+      top: 20%;
+      width: 16em;
+      margin: 0 auto;
+      border-right: 4px solid rgba(255, 255, 255, 0);
+      font-size: 400%;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;transform: translateY(-50%);
+}
+
+.line2 {
+      position: relative;
+      top: 20%;
+      width: 16em;
+      margin: 0 auto;
+      border-right: 4px solid rgba(255, 255, 255, 0);
+      font-size: 400%;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;transform: translateY(-50%);
+}
+
+.wrap {
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     overflow: hidden;
+}
+ 
+#ball {
+	width: 60px;
+	height: 60px;
+	background-color: rgba(255,255,255,0.08);
+	border-radius: 70%;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	margin: -10px 0 0 -10px;
+	pointer-events: none;
+}
+ 
+/*Animation*/
+ 
+.anim1 {
+      animation: typewriter1 4s steps(29) 1s 1 normal both,
+      blinkTextCursor 1000ms steps(20) 5 normal;
+}
+
+.anim2 {
+      animation: typewriter2 4s steps(29) 5s 1 normal both,
+      blinkTextCursor 1000ms steps(20) 5s 4 normal;
+}
+ 
+@keyframes typewriter1 {
+      from {
+		    color: forestgreen;
+            width: 0;
+      }
+      to {
+		    color: greenyellow;
+			width: 16.5em;
+      }
+}
+
+@keyframes typewriter2 {
+      from {
+		    color: forestgreen;
+            width: 0;
+      }
+      to {
+		    color: greenyellow;
+			width: 11.5em;
+      }
+}
+ 
+@keyframes blinkTextCursor {
+      0% {
+            border-right-color: inherit;
+      }
+      100% {
+            border-right-color: transparent;
+      }
+}
+
+p.line1:hover ~ #ball
+{
+	width: 90px;
+	height: 90px;
+	background: none;
+	border: 1px solid grey;
+	border-radius: 90%;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	margin: -10px 0 0 -10px;
+	pointer-events: none;
+}
+
+.header {
+	width: 100%;
+	position: bottom;
+	color: white;
+	background-color: rgba(237,188,189,1);
+	align-self: center;
+}
+
+.waves {
+	left: 0;
+	position: absolute;
+	bottom: 0;
+	align-self: center;
+	width: 100%;
+	min-height: 100px;
+	max-height: 200px;
+}
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 798px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}

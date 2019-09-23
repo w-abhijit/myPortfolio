@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Typewriter Effect</title>
+      <link rel="stylesheet" href="style.css">
+</head>
+<body onload = "followMouse();">
+	<div class="wrap">
+          <div id="ball"></div>
+     </div>
+
+     <script type="text/javascript">
+
+     var $ = document.querySelector.bind(document);
+     var $on = document.addEventListener.bind(document);
+
+     var xmouse, ymouse;
+     $on('mousemove', function (e) {
+          xmouse = e.clientX || e.pageX;
+          ymouse = e.clientY || e.pageY;
+     });
+
+     var ball = $('#ball');
+     var x = void 0,
+          y = void 0,
+          dx = void 0,
+          dy = void 0,
+          tx = 0,
+          ty = 0,
+          key = -1;
+
+     var followMouse = function followMouse() {
+          key = requestAnimationFrame(followMouse);
+
+          if(!x || !y) {
+               x = xmouse;
+               y = ymouse;
+          } else {
+               dx = (xmouse - x) * 0.2;
+               dy = (ymouse - y) * 0.2;
+               if(Math.abs(dx) + Math.abs(dy) < 0.1) {
+                    x = xmouse;
+                    y = ymouse;
+               } else {
+                    x += dx;
+                    y += dy;
+               }
+          }
+          ball.style.left = x + 'px';
+          ball.style.top = y + 'px';
+     };
+
+     </script>
+
+<p class="line1 anim1">Hello, this is Abhijit Samal.</p>
+<p class="line2 anim2">This is my Portfolio.</p>
+
+<div class="header">
+<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+viewBox="-50 20 200 40" preserveAspectRatio="none" shape-rendering="auto">
+<defs>
+<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+</defs>
+<g class="parallax">
+<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(173,255,47,0.5)" />
+<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(173,255,47,0.3)" />
+<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(173,255,47,0.1)" />
+<use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(173,255,47,0.7)" />
+</g>
+</svg>
+</div>
+
+</body>
+</html>
